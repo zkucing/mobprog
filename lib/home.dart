@@ -1,26 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:mobprog/cari.dart';
-import 'package:mobprog/hapus.dart';
 import 'package:mobprog/tambah.dart';
 
-class Home extends StatelessWidget {
-  const Home({super.key});
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Aplikasi Admin',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: const MyHomePage(title: 'Aplikasi ADMIN'),
-    );
-  }
-}
-
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
   final String title;
+  final String nama;
+  const MyHomePage(
+      {super.key, this.title = "Aplikasi Admin", required this.nama});
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();
@@ -76,16 +62,6 @@ class _MyHomePageState extends State<MyHomePage> {
               },
             ),
             ListTile(
-              title: const Text('Hapus Karyawan'),
-              onTap: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute<void>(
-                    builder: (BuildContext context) => const Hapus(),
-                  ),
-                );
-              },
-            ),
-            ListTile(
               title: const Text('LOG OUT'),
               onTap: () {
                 showDialog(
@@ -119,24 +95,10 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+          child: Text(
+        "Selamat Datang, " + widget.nama + " !!!",
+        style: TextStyle(fontSize: 24),
+      )),
     );
   }
 }
