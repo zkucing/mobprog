@@ -88,7 +88,28 @@ class _MyHomePageState extends State<MyHomePage> {
             ListTile(
               title: const Text('LOG OUT'),
               onTap: () {
-                Navigator.pop(context);
+                showDialog(
+                  context: context,
+                  builder: (context) {
+                    return AlertDialog(
+                      title: Text("LOG OUT"),
+                      content: Text("Apakah anda ingin LOG OUT ?"),
+                      actions: [
+                        TextButton(
+                            onPressed: () {
+                              Navigator.of(context)
+                                  .popUntil((route) => route.isFirst);
+                            },
+                            child: Text("Iya")),
+                        TextButton(
+                            onPressed: () {
+                              Navigator.pop(context);
+                            },
+                            child: Text("Tidak")),
+                      ],
+                    );
+                  },
+                );
               },
             ),
           ],
