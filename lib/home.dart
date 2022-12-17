@@ -95,10 +95,28 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: Center(
-          child: Text(
-        "Selamat Datang, " + widget.nama + " !!!",
-        style: TextStyle(fontSize: 24),
-      )),
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                "Selamat Datang, " + widget.nama + " !!!",
+                style: TextStyle(fontSize: 24),
+                textAlign: TextAlign.center,
+              ),
+              SizedBox(
+                height: 16,
+              ),
+              Text(
+                "Apa yang akan anda lakukan hari ini ???",
+                style: TextStyle(fontSize: 24),
+                textAlign: TextAlign.center,
+              ),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }
